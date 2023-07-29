@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca Publica.</title>
+</head>
+<body>
+    <script>
+        //Administrando uma Biblioteca.
+
+        let livros = [
+             {titulo:'O poder do Habito',autor: 'Charles Duhigg', local: 'a1'},
+             {titulo: 'Como fazer amigos',autor: 'Dale Carnegie', local: 'd2'},
+             {titulo: 'Geração de Valor', autor: 'Flavio Augusto', local: 'l3'},
+             {titulo: 'Os segredos da mente', autor: 'T.Harv Eker',local: 'o4'}
+        ];
+
+        // inserir os livros em nossos sistemas. 
+        let estantes = new Map();
+        for(let livro of livros){
+             estantes.set(livro.titulo, livro.local); //Fazer a inserção dentro do nosso mapa. Titulo como chave e localcomo valor.
+
+        }
+
+        /*Ver a localização do livro,vamos criar uma função,
+            esse metodo vai recebe uma titulo e vai retorna uma string com a localização*/
+        function localdolivro(titulo){
+            let estante = estantes.get(titulo); //Passando o titulo do livro,a variavel estante vai recebe a localização do livro.
+
+            if(estante === undefined){
+                 return "Livro não encontrado";
+            }
+            return estante;
+        }
+
+        let localizacao = localdolivro('O poder do Habito');
+        console.log(localizacao);
+
+    </script>
+</body>
+</html>
